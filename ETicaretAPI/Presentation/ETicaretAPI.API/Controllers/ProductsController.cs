@@ -9,6 +9,9 @@ namespace ETicaretAPI.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
+
+       
+
         public ProductsController(IProductService productService)
         {
             _productService = productService;
@@ -16,6 +19,8 @@ namespace ETicaretAPI.API.Controllers
         [HttpGet]
         public IActionResult GetProducts()
         {
+
+
           var products = _productService.GetProducts();
             return Ok(products);
         }

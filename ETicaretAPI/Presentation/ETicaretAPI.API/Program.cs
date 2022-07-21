@@ -1,8 +1,15 @@
+using ETicaretAPI.Application.Abstractions;
 using ETicaretAPI.Persistence;
+using ETicaretAPI.Persistence.Concretes;
+using ETicaretAPI.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistenceServices();
+var connectionString = builder.Configuration.GetConnectionString("posgre");
+builder.Services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
