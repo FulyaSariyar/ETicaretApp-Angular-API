@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistenceServices();
-var connectionString = builder.Configuration.GetConnectionString("posgre");
-builder.Services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(connectionString));
+var connectionString = builder.Configuration.GetConnectionString("sql");
+builder.Services.AddDbContext<ETicaretAPIDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddControllers();
