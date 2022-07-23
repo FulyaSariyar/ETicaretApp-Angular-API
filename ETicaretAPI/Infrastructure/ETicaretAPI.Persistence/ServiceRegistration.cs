@@ -1,9 +1,4 @@
-﻿using ETicaretAPI.Application.Abstractions;
-using ETicaretAPI.Persistence.Concretes;
-using ETicaretAPI.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace ETicaretAPI.Persistence
 {
@@ -16,3 +11,4 @@ namespace ETicaretAPI.Persistence
         }
     }
 }
+
