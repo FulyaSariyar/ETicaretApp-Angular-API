@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistenceServices();
 var connectionString = builder.Configuration.GetConnectionString("sql");
-builder.Services.AddDbContext<ETicaretAPIDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ETicaretAPIDbContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Singleton);
 builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddControllers();
